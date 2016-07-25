@@ -450,6 +450,9 @@ class FloatingIpManager(network_base.FloatingIpManager):
     def is_supported(self):
         return True
 
+@memoized
+def policy_list(request):
+    return novaclient(request).policys.list()
 
 @memoized
 def novaclient(request):
